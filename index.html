@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoMo Analytics Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1>MTN MoMo Insights</h1>
+        </header>
+
+        <section class="controls">
+            <input type="text" id="search-box" placeholder="Find a transaction...">
+
+            <div class="filter-group">
+                <label for="type-filter">Transaction Type:</label>
+                <select id="type-filter">
+                    <option value="all">All Types</option>
+                    <option value="Incoming Money">Incoming Money</option>
+                    <option value="Payments to Code Holders">Payments to Code Holders</option>
+                    <option value="Airtime Bill Payments">Airtime Bill Payments</option>
+                    <option value="Withdrawals from Agents">Withdrawals from Agents</option>
+                    <option value="Internet and Voice Bundle Purchases">Internet & Bundles</option>
+                </select>
+
+                <label for="sort-options">Sort:</label>
+                <select id="sort-options">
+                    <option value="date">Newest</option>
+                    <option value="amount">Highest Amount</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <table id="transactions">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Amount (RWF)</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+            <div class="footer">
+                <p>Total Records: <span id="record-count">0</span></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
