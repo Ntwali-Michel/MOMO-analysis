@@ -59,12 +59,12 @@ th, td {
 }
 
 th {
-    background-color: #ffcd00; /* MTN Gold */
+    background-color: #ecd36f; /* MTN Gold */
     color: #000;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #fff8dc;
+    background-color: #cac6b5;
 }
 
 .footer {
