@@ -2,6 +2,8 @@
 
 An enterprise-level fullstack web application for processing, storing, and analysing mobile money (MoMo) SMS data from MTN Rwanda. This system parses raw XML messages, categorizes transactions, saves them in a relational database, and provides a clean, interactive dashboard for data exploration.
 
+demo:https://youtu.be/_aWQ0g5jnEA 
+
  # Features
 XML Data Parser: Extracts useful transaction info from MTN MoMo SMS messages.
 
@@ -51,7 +53,7 @@ index.html
 python3 -m http.server 8000
 
  Video Demonstration
-🎬 Watch the full  walkthrough: [Link to video]
+🎬 Watch the full  walkthrough: https://youtu.be/_aWQ0g5jnEA 
 The video includes architecture, demo, schema explanation, and how to use the dashboard.
 
 Author
