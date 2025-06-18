@@ -1,11 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let transactions = [
-        { id: "123456", type: "Incoming Money", amount: 5000, date: "2024-01-01" },
-        { id: "789012", type: "Payments to Code Holders", amount: 1500, date: "2024-01-02" },
-        { id: "345678", type: "Airtime Bill Payments", amount: 3000, date: "2024-01-03" },
-        { id: "999888", type: "Withdrawals from Agents", amount: 20000, date: "2024-01-04" },
-        { id: "555444", type: "Internet and Voice Bundle Purchases", amount: 2000, date: "2024-01-05" },
-    ];
+    let transactions = [];
 
     const tableBody = document.querySelector("#transactions-table tbody");
     const searchInput = document.getElementById("search");
@@ -18,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let total = 0;
 
         data.forEach(tx => {
-            total += tx.amount;
+            total += tx.amount || 0;
             const row = `
                 <tr>
-                    <td>${tx.id}</td>
-                    <td>${tx.type}</td>
-                    <td>${tx.amount} RWF</td>
-                    <td>${tx.date}</td>
+                    <td>${tx.transaction_id || "N/A"}</td>
+                    <td>${tx.type || "Uncategorized"}</td>
+                    <td>${tx.amount || 0} RWF</td>
+                    <td>${tx.date || "N/A"}</td>
                 </tr>
             `;
             tableBody.innerHTML += row;
@@ -36,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function searchTransactions() {
         const query = searchInput.value.toLowerCase();
         let filteredData = transactions.filter(tx =>
-            tx.type.toLowerCase().includes(query) ||
-            tx.id.includes(query) ||
-            tx.date.includes(query)
+            (tx.type || "").toLowerCase().includes(query) ||
+            (tx.transaction_id || "").includes(query) ||
+            (tx.date || "").includes(query)
         );
         loadTransactions(filteredData);
     }
@@ -57,17 +51,30 @@ document.addEventListener("DOMContentLoaded", function () {
         let sortedData = [...transactions];
 
         if (sortBy === "amount") {
-            sortedData.sort((a, b) => b.amount - a.amount);
+            sortedData.sort((a, b) => (b.amount || 0) - (a.amount || 0));
         } else if (sortBy === "date") {
-            sortedData.sort((a, b) => new Date(b.date) - new Date(a.date));
+            sortedData.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
         }
         
         loadTransactions(sortedData);
     }
 
+    // Fetch actual data from the JSON file
+    fetch("transactions.json")
+        .then(res => res.json())
+        .then(data => {
+            transactions = data;
+            loadTransactions();
+        })
+        .catch(err => {
+            console.error("Failed to load transactions.json:", err);
+            // fallback to empty state
+            transactions = [];
+            loadTransactions();
+        });
+
+    // Add event listeners
     searchInput.addEventListener("input", searchTransactions);
     filterSelect.addEventListener("change", filterTransactions);
     sortSelect.addEventListener("change", sortTransactions);
-
-    loadTransactions();
 });
