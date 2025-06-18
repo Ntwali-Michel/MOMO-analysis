@@ -1,0 +1,46 @@
+1. Introduction
+
+This project is a full-stack web dashboard for analyzing MTN MoMo SMS transaction data. The system processes an XML file containing raw SMS logs, extracts structured transaction data, and visualizes it in an interactive dashboard.
+
+2. Data Processing
+
+Parsed ~1600 SMS messages using xml.etree.ElementTree.
+
+Cleaned and normalized:
+
+Amounts (e.g., "20,000 RWF" → 20000)
+
+Dates (ISO format)
+
+Transaction IDs
+
+Categorized into types (e.g., Incoming Money, Withdrawals).
+
+3. System Design
+
+Backend: Python scripts for XML parsing & cleaning.
+
+Frontend: HTML/CSS/JS dashboard with Chart.js.
+
+Storage: Converted to static transactions.json file.
+
+4. Features
+Search, filter, sort transactions
+
+View total number of transactions
+
+Live GitHub Pages deployment
+
+5. Challenges
+Handling mixed SMS formats
+
+Ensuring data consistency
+
+Debugging frontend loading without a backend
+
+6. Outcome
+Functional dashboard
+
+Successfully deployed on GitHub Pages
+
+All key assignment features implemented

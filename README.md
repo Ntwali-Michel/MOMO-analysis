@@ -25,13 +25,13 @@ Parsing	Python's xml.etree.ElementTree, re
 
 # How to Run the Project
 
-📍 Hosted Dashboard (GitHub Pages)
+ Hosted Dashboard (GitHub Pages)
 
-Note: Replace the above link with your actual GitHub Pages URL
+https://ntwali-michel.github.io/MOMO-analysis/ 
 
 1. Clone the Repository
-bash
-Copy code
+
+code
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 2. Backend Setup (Python + FastAPI)
@@ -44,14 +44,14 @@ If you're running locally, open the frontend manually:
 
  code
 # Option 1: Open the file
-open docs/index.html
+index.html
 
 # Option 2: Use Python to serve it
-cd docs
-python -m http.server 8000
 
-🎥 Video Demonstration
-🎬 Watch the full 5-minute walkthrough: [Link to video]
+python3 -m http.server 8000
+
+ Video Demonstration
+🎬 Watch the full  walkthrough: [Link to video]
 The video includes architecture, demo, schema explanation, and how to use the dashboard.
 
 Author
