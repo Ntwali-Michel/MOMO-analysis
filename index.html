@@ -15,11 +15,11 @@
         </header>
 
         <section class="controls">
-            <input type="text" id="search-box" placeholder="Find a transaction...">
+            <input type="text" id="search" placeholder="Find a transaction...">
 
             <div class="filter-group">
-                <label for="type-filter">Transaction Type:</label>
-                <select id="type-filter">
+                <label for="filter-type">Transaction Type:</label>
+                <select id="filter-type">
                     <option value="all">All Types</option>
                     <option value="Incoming Money">Incoming Money</option>
                     <option value="Payments to Code Holders">Payments to Code Holders</option>
@@ -28,8 +28,8 @@
                     <option value="Internet and Voice Bundle Purchases">Internet & Bundles</option>
                 </select>
 
-                <label for="sort-options">Sort:</label>
-                <select id="sort-options">
+                <label for="sort-by">Sort:</label>
+                <select id="sort-by">
                     <option value="date">Newest</option>
                     <option value="amount">Highest Amount</option>
                 </select>
@@ -37,7 +37,7 @@
         </section>
 
         <section class="table-section">
-            <table id="transactions">
+            <table id="transactions-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -51,7 +51,7 @@
                 </tbody>
             </table>
             <div class="footer">
-                <p>Total Records: <span id="record-count">0</span></p>
+                <p>Total Records: <span id="total-transactions">0</span></p>
             </div>
         </section>
     </main>
